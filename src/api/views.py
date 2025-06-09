@@ -63,7 +63,6 @@ class ReadyViewSet(viewsets.ModelViewSet):
     serializer_class = TodoSerializer
     permission_classes = (IsCreatorOrReadOnly,)
     def list(self, request, *args, **kwargs):
-        time.sleep(5)  # Simulate a long-running process
         return Response("Ready!", status=200)
     
 
