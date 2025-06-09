@@ -59,17 +59,12 @@ class TodoViewSet(viewsets.ModelViewSet):
         serializer.save(creator=creator)
 
 class ReadyViewSet(viewsets.ModelViewSet):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
     permission_classes = (IsCreatorOrReadOnly,)
     def list(self, request, *args, **kwargs):
         return Response("Ready!", status=200)
     
 
 class LivenessViewSet(viewsets.ModelViewSet):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
     permission_classes = (IsCreatorOrReadOnly,)
-
     def list(self, request, *args, **kwargs):
         return Response("Alive!", status=200)
